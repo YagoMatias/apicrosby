@@ -124,7 +124,7 @@ app.get('/', async (req, res) => {
   }
 });
 
-const PORT = process.env.port || 5432;
+const PORT = process.env.POSTGRES_URL || 3000;
 
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
