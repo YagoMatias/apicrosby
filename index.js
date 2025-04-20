@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-//Rank
+// Rank;
 // app.get('/', async (req, res) => {
 //   const inicio = req.query.inicio;
 //   const fim = req.query.fim;
@@ -61,7 +61,7 @@ app.use(express.json());
 //     res.status(500).send('Erro no servidor');
 //   }
 // });
-// //Home
+//Home
 // app.get('/home', async (req, res) => {
 //   const inicio = req.query.inicio;
 //   const fim = req.query.fim;
@@ -125,7 +125,8 @@ app.get('/', async (req, res) => {
 });
 
 const PORT = process.env.port || 3000;
-app.listen(() => {
+
+app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
 
