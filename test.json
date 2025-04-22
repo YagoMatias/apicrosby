@@ -1,0 +1,145 @@
+[
+  {
+    "vendedor": "61474",
+    "nome_vendedor": "GREICE - BOA VISTA ADM",
+    "cd_compvend": "61474",
+    "nr_transacao": "582518",
+    "paentrada": 0,
+    "pasaida": 6,
+    "trasaida": "1",
+    "traentrada": "0",
+    "faturamento": 983
+  },
+  {
+    "vendedor": "61474",
+    "nome_vendedor": "GREICE - BOA VISTA ADM",
+    "cd_compvend": "61474",
+    "nr_transacao": "582325",
+    "paentrada": 0,
+    "pasaida": 4,
+    "trasaida": "1",
+    "traentrada": "0",
+    "faturamento": 740
+  },
+  {
+    "vendedor": "61474",
+    "nome_vendedor": "GREICE - BOA VISTA ADM",
+    "cd_compvend": "61474",
+    "nr_transacao": "582067",
+    "paentrada": 0,
+    "pasaida": 6,
+    "trasaida": "1",
+    "traentrada": "0",
+    "faturamento": 502.4
+  },
+  {
+    "vendedor": "61474",
+    "nome_vendedor": "GREICE - BOA VISTA ADM",
+    "cd_compvend": "61474",
+    "nr_transacao": "582484",
+    "paentrada": 0,
+    "pasaida": 3,
+    "trasaida": "1",
+    "traentrada": "0",
+    "faturamento": 458
+  },
+  {
+    "vendedor": "61474",
+    "nome_vendedor": "GREICE - BOA VISTA ADM",
+    "cd_compvend": "61474",
+    "nr_transacao": "582401",
+    "paentrada": 0,
+    "pasaida": 3,
+    "trasaida": "1",
+    "traentrada": "0",
+    "faturamento": 349
+  },
+  {
+    "vendedor": "61474",
+    "nome_vendedor": "GREICE - BOA VISTA ADM",
+    "cd_compvend": "61474",
+    "nr_transacao": "582448",
+    "paentrada": 0,
+    "pasaida": 2,
+    "trasaida": "1",
+    "traentrada": "0",
+    "faturamento": 284
+  },
+  {
+    "vendedor": "61474",
+    "nome_vendedor": "GREICE - BOA VISTA ADM",
+    "cd_compvend": "61474",
+    "nr_transacao": "582517",
+    "paentrada": 0,
+    "pasaida": 1,
+    "trasaida": "1",
+    "traentrada": "0",
+    "faturamento": 274
+  },
+  {
+    "vendedor": "61474",
+    "nome_vendedor": "GREICE - BOA VISTA ADM",
+    "cd_compvend": "61474",
+    "nr_transacao": "582441",
+    "paentrada": 0,
+    "pasaida": 1,
+    "trasaida": "1",
+    "traentrada": "0",
+    "faturamento": 208
+  },
+  {
+    "vendedor": "61474",
+    "nome_vendedor": "GREICE - BOA VISTA ADM",
+    "cd_compvend": "61474",
+    "nr_transacao": "582430",
+    "paentrada": 0,
+    "pasaida": 1,
+    "trasaida": "1",
+    "traentrada": "0",
+    "faturamento": 142
+  },
+  {
+    "vendedor": "61474",
+    "nome_vendedor": "GREICE - BOA VISTA ADM",
+    "cd_compvend": "61474",
+    "nr_transacao": "582201",
+    "paentrada": 0,
+    "pasaida": 1,
+    "trasaida": "1",
+    "traentrada": "0",
+    "faturamento": 132
+  },
+  {
+    "vendedor": "61474",
+    "nome_vendedor": "GREICE - BOA VISTA ADM",
+    "cd_compvend": "61474",
+    "nr_transacao": "582057",
+    "paentrada": 0,
+    "pasaida": 1,
+    "trasaida": "1",
+    "traentrada": "0",
+    "faturamento": 98
+  },
+  {
+    "vendedor": "61474",
+    "nome_vendedor": "GREICE - BOA VISTA ADM",
+    "cd_compvend": "61474",
+    "nr_transacao": "582505",
+    "paentrada": 0,
+    "pasaida": 1,
+    "trasaida": "1",
+    "traentrada": "0",
+    "faturamento": 98
+  },
+  {
+    "vendedor": "61474",
+    "nome_vendedor": "GREICE - BOA VISTA ADM",
+    "cd_compvend": "61474",
+    "nr_transacao": "582338",
+    "paentrada": 0,
+    "pasaida": 1,
+    "trasaida": "1",
+    "traentrada": "0",
+    "faturamento": 98
+  }
+]
