@@ -26,10 +26,10 @@ app.get('/', async (req, res) => {
   }
 });
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 10000;
 
-app.listen(port, () => {
-  console.log(`Servidor rodando na porta ${port}`);
+app.listen(10000, () => {
+  console.log(`Servidor rodando na porta 10000`);
 });
 
 export default app;
