@@ -1,0 +1,174 @@
+[33mcommit 088f20ae9ce9dc992c6b7a2f4bd4a8f439aaf7bd[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Yago Matias <yagomatiasdev@gmail.com>
+Date:   Wed Apr 30 11:30:33 2025 -0300
+
+    teste com dados 97
+
+[33mcommit a0e41a5664748c11ff0a30768bb7d01d26139896[m
+Author: Yago Matias <yagomatiasdev@gmail.com>
+Date:   Wed Apr 30 10:33:22 2025 -0300
+
+    teste ocean deploy
+
+[33mcommit 33299363d45acd7a5345196f14bc61e483815df5[m
+Author: Yago Matias <Yago Matias>
+Date:   Wed Apr 30 00:07:38 2025 -0300
+
+    teste
+
+[33mcommit b86f3c536f32f3d1a2fb3c8680de4d3acd59d3d9[m
+Merge: 32096ed 856c0d2
+Author: Yago Matias <Yago Matias>
+Date:   Tue Apr 29 23:51:53 2025 -0300
+
+    iniciando
+
+[33mcommit 32096ed5638447f3764f9e594ca3f861f3bb5fa3[m
+Author: Yago Matias <Yago Matias>
+Date:   Tue Apr 29 23:27:14 2025 -0300
+
+    teste render api
+
+[33mcommit 856c0d278ff87f84ed0ebada168006488f9ba4da[m
+Author: Yago Matias <yagomatiasdev@gmail.com>
+Date:   Mon Apr 28 12:24:47 2025 -0300
+
+    teste
+
+[33mcommit e67235f6b0c1495b36a82e264ace716d02bbffcb[m
+Author: Yago Matias <yagomatiasdev@gmail.com>
+Date:   Mon Apr 28 12:20:53 2025 -0300
+
+    teste
+
+[33mcommit 2c5ea12d606262d907286d80aa787fd074c3557f[m
+Author: Yago Matias <yagomatiasdev@gmail.com>
+Date:   Tue Apr 22 12:07:44 2025 -0300
+
+    teste
+
+[33mcommit 6a206b7f475d93f6f08a47b446e4f099820d368e[m
+Author: Yago Matias <Yago Matias>
+Date:   Mon Apr 21 21:31:12 2025 -0300
+
+    deploy crosbyapi no github
+
+[33mcommit a9c5775bd5e69fe3a52ad12d550f8ee80200f923[m
+Author: Yago Matias <Yago Matias>
+Date:   Sun Apr 20 19:53:15 2025 -0300
+
+    refatorando portas
+
+[33mcommit db0864b236af10238cd7ef3b9ac84310a17ce3c9[m
+Author: Yago Matias <Yago Matias>
+Date:   Sun Apr 20 18:52:24 2025 -0300
+
+    refatorando portas
+
+[33mcommit dc100943342b5ea5698a2174368d64d2aa8682ee[m
+Author: Yago Matias <Yago Matias>
+Date:   Sun Apr 20 18:35:42 2025 -0300
+
+    refatorando portas
+
+[33mcommit ec17c576a684674c309cc133e688e6b9948bc7e2[m
+Author: Yago Matias <Yago Matias>
+Date:   Sun Apr 20 18:28:25 2025 -0300
+
+    refatorando portas
+
+[33mcommit 74f4eb042719e3bbad2456c591f9ff51a13d8a1b[m
+Author: Yago Matias <Yago Matias>
+Date:   Sun Apr 20 18:23:02 2025 -0300
+
+    refatorando portas
+
+[33mcommit a426c0a6ff7e820f248ae9121a7a22d817e87a4d[m
+Author: Yago Matias <Yago Matias>
+Date:   Sun Apr 20 18:10:30 2025 -0300
+
+    install pg
+
+[33mcommit 57e4fe427cf6859a40a52cb7d607943ba3df6824[m
+Author: Yago Matias <Yago Matias>
+Date:   Sun Apr 20 17:58:47 2025 -0300
+
+    install pg
+
+[33mcommit 6b64c4086c18ee9247f0eff04ce0a0c98a7a064e[m
+Author: Yago Matias <Yago Matias>
+Date:   Sun Apr 20 17:44:42 2025 -0300
+
+    configuracao de dependencias
+
+[33mcommit 29e677f2cc0fb591b92c63ea02fa2449dd34a7b2[m
+Author: Yago Matias <Yago Matias>
+Date:   Sun Apr 20 17:41:39 2025 -0300
+
+    configuracao de dependencias
+
+[33mcommit e7389e098271e93c9d0f83b9cc6159470a2b2fa2[m
+Author: Yago Matias <Yago Matias>
+Date:   Sun Apr 20 17:25:51 2025 -0300
+
+    teste
+
+[33mcommit c89db144557947dbc6808d58417c8a20b15bebec[m
+Author: Yago Matias <Yago Matias>
+Date:   Sun Apr 20 17:20:16 2025 -0300
+
+    test
+
+[33mcommit d6de9e0c7804950789deac7be69c466bec373101[m
+Author: Yago Matias <Yago Matias>
+Date:   Sun Apr 20 17:00:33 2025 -0300
+
+    test
+
+[33mcommit 9d0eb4998fefbc370fa2f8ae37b53839a2c86601[m
+Author: Yago Matias <Yago Matias>
+Date:   Sun Apr 20 16:57:46 2025 -0300
+
+    test
+
+[33mcommit 303f02e8b6df53ad22c53ce2541e995defe6a187[m
+Author: Yago Matias <Yago Matias>
+Date:   Sun Apr 20 16:51:54 2025 -0300
+
+    atualizando rotas
+
+[33mcommit c155b255bd2fd7520fa75a0c6568cdb1d93f40a4[m
+Author: Yago Matias <Yago Matias>
+Date:   Sun Apr 20 16:41:04 2025 -0300
+
+    correcao nas rotas
+
+[33mcommit ed52939cfd6e699042f045b0e2e6262c3fa5f672[m
+Author: Yago Matias <Yago Matias>
+Date:   Sun Apr 20 16:36:04 2025 -0300
+
+    versao do node
+
+[33mcommit 52ce4f1b7ffd234befc64fbda60b214f0ee563c5[m
+Author: Yago Matias <Yago Matias>
+Date:   Sun Apr 20 16:24:10 2025 -0300
+
+    atualizacao do package.json
+
+[33mcommit 98e20f8a0d8f7774242dcebe0450d6ab5392ef3e[m
+Author: Yago Matias <Yago Matias>
+Date:   Sun Apr 20 16:17:54 2025 -0300
+
+    atualizacao do vercel.json
+
+[33mcommit 400ba854e59f14e1523b719f6e441fc15352ea10[m
+Author: Yago Matias <Yago Matias>
+Date:   Sun Apr 20 16:07:34 2025 -0300
+
+    primeiro commit
+
+[33mcommit a8d0b8e516c37e5579df6e4343183d4d89736bf7[m
+Author: Yago Matias <Yago Matias>
+Date:   Sun Apr 20 16:05:57 2025 -0300
+
+    criacao do projeto minhas operacoes crosby
