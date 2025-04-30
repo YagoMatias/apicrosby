@@ -10,11 +10,11 @@ app.use(cors({ origin: '*' }));
 
 // Rank;
 app.get('/', async (req, res) => {
-  const inicio = req.query.inicio;
-  const fim = req.query.fim;
+  // const inicio = req.query.inicio;
+  // const fim = req.query.fim;
 
-  const dataInicio = `${inicio} 00:00:00`;
-  const dataFim = `${fim} 23:59:59`;
+  // const dataInicio = `${inicio} 00:00:00`;
+  // const dataFim = `${fim} 23:59:59`;
   try {
 //     const resultado = await pool.query(
 //       `SELECT
@@ -83,103 +83,103 @@ app.get('/', async (req, res) => {
   }
 });
 // // Home;
-app.get('/home', async (req, res) => {
-  const inicio = req.query.inicio;
-  const fim = req.query.fim;
+// app.get('/home', async (req, res) => {
+//   const inicio = req.query.inicio;
+//   const fim = req.query.fim;
 
-  const dataInicio = `${inicio} 00:00:00`;
-  const dataFim = `${fim} 23:59:59`;
-  try {
-    const resultado = await pool.query(
-      `SELECT
-          SUM(
-          CASE
-            WHEN TP_OPERACAO = 'E' AND TP_SITUACAO = 4 THEN QT_SOLICITADA
-            ELSE 0
-           END
-          ) AS PAENTRADA,
-          SUM(
-          CASE
-            WHEN TP_OPERACAO = 'S' AND TP_SITUACAO = 4 THEN QT_SOLICITADA
-            ELSE 0
-           END
-          ) AS PASAIDA,
-          COUNT(*) FILTER(WHERE TP_SITUACAO = 4 AND TP_OPERACAO = 'S') AS TRASAIDA,
-          COUNT(*) FILTER(WHERE TP_SITUACAO = 4 AND TP_OPERACAO = 'E') AS TRAENTRADA,
-          SUM(
-             CASE
-               WHEN TP_SITUACAO = 4 AND TP_OPERACAO = 'S' THEN VL_TOTAL
-               WHEN TP_SITUACAO = 4 AND TP_OPERACAO = 'E' THEN -VL_TOTAL
-               ELSE 0
-             END) AS FATURAMENTO
-         FROM TRA_TRANSACAO
-         WHERE
-           TP_SITUACAO = 4 AND
-           TP_OPERACAO IN ('S', 'E') AND
-           CD_OPERACAO IN (1,2,510,511,1511,521,1521,522,960,9001,9009,9027,8750,9017,9400,9401,9402,9403,9005,545,546,555,548,1210) AND
-           DT_TRANSACAO BETWEEN $1::timestamp AND $2::timestamp
-         ORDER BY FATURAMENTO DESC`,
-      [[dataInicio], [dataFim]],
-    );
+//   const dataInicio = `${inicio} 00:00:00`;
+//   const dataFim = `${fim} 23:59:59`;
+//   try {
+//     const resultado = await pool.query(
+//       `SELECT
+//           SUM(
+//           CASE
+//             WHEN TP_OPERACAO = 'E' AND TP_SITUACAO = 4 THEN QT_SOLICITADA
+//             ELSE 0
+//            END
+//           ) AS PAENTRADA,
+//           SUM(
+//           CASE
+//             WHEN TP_OPERACAO = 'S' AND TP_SITUACAO = 4 THEN QT_SOLICITADA
+//             ELSE 0
+//            END
+//           ) AS PASAIDA,
+//           COUNT(*) FILTER(WHERE TP_SITUACAO = 4 AND TP_OPERACAO = 'S') AS TRASAIDA,
+//           COUNT(*) FILTER(WHERE TP_SITUACAO = 4 AND TP_OPERACAO = 'E') AS TRAENTRADA,
+//           SUM(
+//              CASE
+//                WHEN TP_SITUACAO = 4 AND TP_OPERACAO = 'S' THEN VL_TOTAL
+//                WHEN TP_SITUACAO = 4 AND TP_OPERACAO = 'E' THEN -VL_TOTAL
+//                ELSE 0
+//              END) AS FATURAMENTO
+//          FROM TRA_TRANSACAO
+//          WHERE
+//            TP_SITUACAO = 4 AND
+//            TP_OPERACAO IN ('S', 'E') AND
+//            CD_OPERACAO IN (1,2,510,511,1511,521,1521,522,960,9001,9009,9027,8750,9017,9400,9401,9402,9403,9005,545,546,555,548,1210) AND
+//            DT_TRANSACAO BETWEEN $1::timestamp AND $2::timestamp
+//          ORDER BY FATURAMENTO DESC`,
+//       [[dataInicio], [dataFim]],
+//     );
 
-    res.json(resultado.rows);
-    console.log(resultado.rows);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Erro no servidor');
-  }
-});
+//     res.json(resultado.rows);
+//     console.log(resultado.rows);
+//   } catch (err) {
+//     console.error(err.message);
+//     res.status(500).send('Erro no servidor');
+//   }
+// });
 
-//Vendedor
-app.get('/vendedor', async (req, res) => {
-  const inicio = req.query.inicio;
-  const fim = req.query.fim;
-  const dataInicio = `${inicio} 00:00:00`;
-  const dataFim = `${fim} 23:59:59`;
-  try {
-    const resultado = await pool.query(
-      `SELECT 
-       A.CD_VENDEDOR AS VENDEDOR,
-       A.NM_VENDEDOR AS NOME_VENDEDOR,
-       B.CD_COMPVEND,
-          SUM(
-      CASE
-        WHEN B.TP_OPERACAO = 'E' AND B.TP_SITUACAO = 4 THEN B.QT_SOLICITADA
-        ELSE 0
-      END
-    ) AS PAENTRADA,
-    SUM(
-      CASE
-        WHEN B.TP_OPERACAO = 'S' AND B.TP_SITUACAO = 4 THEN B.QT_SOLICITADA
-        ELSE 0
-      END
-    ) AS PASAIDA,
-    COUNT(*) FILTER(WHERE B.TP_SITUACAO = 4 AND B.TP_OPERACAO = 'S') AS TRASAIDA,
-    COUNT(*) FILTER(WHERE B.TP_SITUACAO = 4 AND B.TP_OPERACAO = 'E') AS TRAENTRADA,
-    SUM(
-      CASE
-        WHEN B.TP_SITUACAO = 4 AND B.TP_OPERACAO = 'S' THEN B.VL_TOTAL
-        WHEN B.TP_SITUACAO = 4 AND B.TP_OPERACAO = 'E' THEN -B.VL_TOTAL
-        ELSE 0
-      END
-    ) AS FATURAMENTO
-      FROM PES_VENDEDOR A
-      JOIN TRA_TRANSACAO B ON A.CD_VENDEDOR = B.CD_COMPVEND
-      WHERE B.TP_SITUACAO = 4
-        AND B.TP_OPERACAO IN ('S', 'E')
-        AND B.CD_OPERACAO IN (1,2,510,511,1511,521,1521,522,960,9001,9009,9027,8750,9017,9400,9401,9402,9403,9005,545,546,555,548,1210,1202,8800)
-        AND B.DT_TRANSACAO BETWEEN $1::timestamp AND $2::timestamp
-      GROUP BY A.CD_VENDEDOR, A.NM_VENDEDOR, B.CD_COMPVEND
-      ORDER BY FATURAMENTO DESC;`,
-      [[dataInicio], [dataFim]],
-    );
-    res.json(resultado.rows);
-    console.log(resultado.rows);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Erro no servidor bb');
-  }
-});
+// //Vendedor
+// app.get('/vendedor', async (req, res) => {
+//   const inicio = req.query.inicio;
+//   const fim = req.query.fim;
+//   const dataInicio = `${inicio} 00:00:00`;
+//   const dataFim = `${fim} 23:59:59`;
+//   try {
+//     const resultado = await pool.query(
+//       `SELECT 
+//        A.CD_VENDEDOR AS VENDEDOR,
+//        A.NM_VENDEDOR AS NOME_VENDEDOR,
+//        B.CD_COMPVEND,
+//           SUM(
+//       CASE
+//         WHEN B.TP_OPERACAO = 'E' AND B.TP_SITUACAO = 4 THEN B.QT_SOLICITADA
+//         ELSE 0
+//       END
+//     ) AS PAENTRADA,
+//     SUM(
+//       CASE
+//         WHEN B.TP_OPERACAO = 'S' AND B.TP_SITUACAO = 4 THEN B.QT_SOLICITADA
+//         ELSE 0
+//       END
+//     ) AS PASAIDA,
+//     COUNT(*) FILTER(WHERE B.TP_SITUACAO = 4 AND B.TP_OPERACAO = 'S') AS TRASAIDA,
+//     COUNT(*) FILTER(WHERE B.TP_SITUACAO = 4 AND B.TP_OPERACAO = 'E') AS TRAENTRADA,
+//     SUM(
+//       CASE
+//         WHEN B.TP_SITUACAO = 4 AND B.TP_OPERACAO = 'S' THEN B.VL_TOTAL
+//         WHEN B.TP_SITUACAO = 4 AND B.TP_OPERACAO = 'E' THEN -B.VL_TOTAL
+//         ELSE 0
+//       END
+//     ) AS FATURAMENTO
+//       FROM PES_VENDEDOR A
+//       JOIN TRA_TRANSACAO B ON A.CD_VENDEDOR = B.CD_COMPVEND
+//       WHERE B.TP_SITUACAO = 4
+//         AND B.TP_OPERACAO IN ('S', 'E')
+//         AND B.CD_OPERACAO IN (1,2,510,511,1511,521,1521,522,960,9001,9009,9027,8750,9017,9400,9401,9402,9403,9005,545,546,555,548,1210,1202,8800)
+//         AND B.DT_TRANSACAO BETWEEN $1::timestamp AND $2::timestamp
+//       GROUP BY A.CD_VENDEDOR, A.NM_VENDEDOR, B.CD_COMPVEND
+//       ORDER BY FATURAMENTO DESC;`,
+//       [[dataInicio], [dataFim]],
+//     );
+//     res.json(resultado.rows);
+//     console.log(resultado.rows);
+//   } catch (err) {
+//     console.error(err.message);
+//     res.status(500).send('Erro no servidor bb');
+//   }
+// });
 
 //test
 // app.get('/', async (req, res) => {
