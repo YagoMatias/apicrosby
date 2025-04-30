@@ -181,7 +181,6 @@ app.get('/vendedor', async (req, res) => {
   }
 });
 
-test
 app.get('/', async (req, res) => {
   try {
     const resultado = await pool.query(
