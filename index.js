@@ -79,7 +79,7 @@ app.get('/', async (req, res) => {
     console.log(resultado2.rows);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Erro no servidor');
+    res.status(500).send(console.error(err.message));
   }
 });
 // // Home;
