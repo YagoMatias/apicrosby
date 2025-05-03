@@ -68,7 +68,7 @@ GROUP BY
     B.NM_FANTASIA
 ORDER BY
     FATURAMENTO DESC,
-    B.NM_FANTASIA;`,
+    B.NM_FANTASIA`,
       [1, 7000, [dataInicio], [dataFim]],
     );
 
@@ -167,7 +167,7 @@ app.get('/vendedor', async (req, res) => {
         AND B.CD_OPERACAO IN (1,2,510,511,1511,521,1521,522,960,9001,9009,9027,8750,9017,9400,9401,9402,9403,9005,545,546,555,548,1210,1202,8800,9404)
         AND B.DT_TRANSACAO BETWEEN $1::timestamp AND $2::timestamp
       GROUP BY A.CD_VENDEDOR, A.NM_VENDEDOR, B.CD_COMPVEND
-      ORDER BY FATURAMENTO DESC;`,
+      ORDER BY FATURAMENTO DESC`,
       [[dataInicio], [dataFim]],
     );
     res.json(resultado.rows);
@@ -194,8 +194,8 @@ app.get('/test', async (req, res) => {
 
 const PORT = process.env.PORT || 8080;
 
-app.listen(8080, () => {
-  console.log(`Servidor rodando na porta ${8080}`);
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
 });
 
 export default app;
