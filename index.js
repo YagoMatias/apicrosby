@@ -183,7 +183,7 @@ app.get('/test', async (req, res) => {
     const resultado = await pool.query(
       'SELECT * FROM TRA_TRANSACAO WHERE CD_EMPRESA = 97',
     );
-    console.log('olá mundo');
+    console.log('Olá Mundão vamos funcionar');
     res.json(resultado.rows);
     console.log(resultado.rows);
   } catch (err) {
