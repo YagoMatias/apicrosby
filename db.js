@@ -8,10 +8,16 @@ const pool = new Pool({
   password: process.env.PASSWORD,
   port: process.env.PORT,
   pool: {
-    max: 5,
     min: 0,
-    idle: 300000,
-    acquire: 300000
+    max: 7,
+    acquireTimeoutMillis: 300000,
+    createTimeoutMillis: 300000,
+    destroyTimeoutMillis: 50000,
+    idleTimeoutMillis: 300000,
+    reapIntervalMillis: 10000,
+    createRetryIntervalMillis: 2000,
+    propagateCreateError: false,
   },
+  acquireConnectionTimeout: 60000,
 });
 export default pool;
