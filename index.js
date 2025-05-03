@@ -69,7 +69,7 @@ GROUP BY
 ORDER BY
     FATURAMENTO DESC,
     B.NM_FANTASIA;`,
-      [1, 7000, [dataInicio], [dataFim]],
+      [1, 7000, dataInicio, dataFim],
     );
     // const resultado2 = await pool.query(
     //   "SELECT * FROM TRA_TRANSACAO WHERE CD_GRUPOEMPRESA = 97"
@@ -119,7 +119,7 @@ app.get('/home', async (req, res) => {
            CD_OPERACAO IN (1,2,510,511,1511,521,1521,522,960,9001,9009,9027,8750,9017,9400,9401,9402,9403,9005,545,546,555,548,1210,9404) AND
            DT_TRANSACAO BETWEEN $1::timestamp AND $2::timestamp
          ORDER BY FATURAMENTO DESC`,
-      [[dataInicio], [dataFim]],
+      [dataInicio, dataFim],
     );
 
     res.json(resultado.rows);
@@ -171,7 +171,7 @@ app.get('/vendedor', async (req, res) => {
         AND B.DT_TRANSACAO BETWEEN $1::timestamp AND $2::timestamp
       GROUP BY A.CD_VENDEDOR, A.NM_VENDEDOR, B.CD_COMPVEND
       ORDER BY FATURAMENTO DESC;`,
-      [[dataInicio], [dataFim]],
+      [dataInicio, dataFim],
     );
     res.json(resultado.rows);
     console.log(resultado.rows);
@@ -195,7 +195,7 @@ app.get('/vendedor', async (req, res) => {
 //   }
 // });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PGPORT || 3000;
 
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Servidor rodando na porta ${PORT}`);
