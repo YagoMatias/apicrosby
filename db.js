@@ -1,5 +1,4 @@
 import pkg from 'pg';
-import dotenv from 'dotenv/config';
 
 const { Pool } = pkg;
 const pool = new Pool({
@@ -8,5 +7,9 @@ const pool = new Pool({
   database: process.env.DATABASE,
   password: process.env.PASSWORD,
   port: process.env.PORT,
+  ssl:{
+    rejectUnauthorized:false
+  },connectionTimeoutMillis:5000,
+  idleTimeoutMillis:30000,
 });
 export default pool;
