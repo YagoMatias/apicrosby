@@ -181,7 +181,7 @@ app.get('/vendedor', async (req, res) => {
   }
 });
 
-app.get('/', async (req, res) => {
+app.get('/test', async (req, res) => {
   try {
     const resultado = await pool.query(
       'SELECT * FROM TRA_TRANSACAO WHERE CD_EMPRESA = 97',
