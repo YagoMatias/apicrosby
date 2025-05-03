@@ -72,7 +72,7 @@ app.get('/', async (req, res) => {
     //       [1, 7000, dataInicio, dataFim],
     //     );
     const resultado2 = await pool.query(
-      'SELECT * FROM TRA_TRANSACAO WHERE CD_GRUPOEMPRESA = 97',
+      'SELECT * FROM TRA_TRANSACAO WHERE CD_GRUPOEMPRESA = 97 LIMIT 10',
     );
 
     res.json(resultado2.rows);
