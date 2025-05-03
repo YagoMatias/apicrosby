@@ -71,9 +71,6 @@ ORDER BY
     B.NM_FANTASIA;`,
       [1, 7000, [dataInicio], [dataFim]],
     );
-    // const resultado2 = await pool.query(
-    //   "SELECT * FROM TRA_TRANSACAO WHERE CD_GRUPOEMPRESA = 97"
-    // );
 
     res.json(resultado.rows);
     console.log(resultado.rows);
