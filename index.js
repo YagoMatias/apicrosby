@@ -181,19 +181,19 @@ app.get('/vendedor', async (req, res) => {
   }
 });
 
-app.get('/', async (req, res) => {
-  try {
-    const resultado = await pool.query(
-      'SELECT * FROM TRA_TRANSACAO WHERE CD_EMPRESA = 97',
-    );
-    console.log('olá mundo');
-    res.json(resultado.rows);
-    console.log(resultado.rows);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Erro no servidor');
-  }
-});
+// app.get('/', async (req, res) => {
+//   try {
+//     const resultado = await pool.query(
+//       'SELECT * FROM TRA_TRANSACAO WHERE CD_EMPRESA = 97',
+//     );
+//     console.log('olá mundo');
+//     res.json(resultado.rows);
+//     console.log(resultado.rows);
+//   } catch (err) {
+//     console.error(err.message);
+//     res.status(500).send('Erro no servidor');
+//   }
+// });
 
 const PORT = process.env.PORT || 3000;
 
