@@ -6,7 +6,7 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: '*' }));
+// app.use(cors({ origin: '*' }));
 
 // Rank;
 app.get('/', async (req, res) => {
@@ -181,10 +181,10 @@ app.get('/', async (req, res) => {
 //   }
 // });
 
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Servidor rodando na porta '${port}'`);
 });
 
 export default app;
