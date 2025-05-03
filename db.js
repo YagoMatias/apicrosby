@@ -10,7 +10,7 @@ const pool = new Pool({
 pool.connect((err)=>{
   if(err){
     console.error('Erro na Conexão', err.stack)
-  }else {console.log("connected")}
+  }else {console.log("conectado")}
 })
 
 export default pool;
