@@ -7,10 +7,6 @@ dotenv.config();
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
-pool.connect((err)=>{
-  if(err){
-    console.error('Erro na Conexão', err.stack)
-  }else {console.log("conectado")}
-})
+
 
 export default pool;
