@@ -194,8 +194,8 @@ app.get('/test', async (req, res) => {
 
 const PORT = process.env.port || 3000;
 
-app.listen(3000, () => {
-  console.log(`Servidor rodando na porta http://localhost:3000`);
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
 });
 
 export default app;
