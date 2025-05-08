@@ -181,14 +181,14 @@ app.use(cors({ origin: '*' }));
 app.get('/test', async (req, res) => {
   try {
     const resultado = await pool.query(
-      `SELECT * FROM TRA_TRANSACAO WHERE CD_EMPRESA = 97`,
+      `SELECT * FROM TRA_TRANSACAO WHERE CD_GRUPOEMPRESA = 97`,
     );
     console.log('Olá Mundão vamos funcionar');
     res.json(resultado.rows);
     console.log(resultado.rows);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send(`erro no servidor ${err.message}`);
+    res.status(500).send(`erro no servidor`);
   }
 });
 
