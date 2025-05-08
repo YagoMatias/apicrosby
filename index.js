@@ -135,7 +135,7 @@ app.use(cors({ origin: '*' }));
 //   const dataFim = `${fim} 23:59:59`;
 //   try {
 //     const resultado = await pool.query(
-//       `SELECT 
+//       `SELECT
 //        A.CD_VENDEDOR AS VENDEDOR,
 //        A.NM_VENDEDOR AS NOME_VENDEDOR,
 //        B.CD_COMPVEND,
@@ -181,7 +181,7 @@ app.use(cors({ origin: '*' }));
 app.get('/test', async (req, res) => {
   try {
     const resultado = await pool.query(
-       `SELECT * FROM TRA_TRANSACAO WHERE CD_EMPRESA = 97`,
+      `SELECT * FROM TRA_TRANSACAO WHERE CD_EMPRESA = 97`,
     );
     console.log('Olá Mundão vamos funcionar');
     res.json(resultado.rows);
@@ -196,11 +196,10 @@ app.get('/health', (req, res) => {
   res.status(200).send('OK');
 });
 
-
 const PORT = process.env.port || 3000;
 
-app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
+app.listen(8080, '0.0.0.0', () => {
+  console.log(`Servidor rodando na porta 8080`);
 });
 
 export default app;
