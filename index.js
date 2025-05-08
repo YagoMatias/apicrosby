@@ -198,8 +198,8 @@ app.get('/health', (req, res) => {
 
 const PORT = process.env.port || 3000;
 
-app.listen(8080, '0.0.0.0', () => {
-  console.log(`Servidor rodando na porta 8080`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
 });
 
 export default app;
