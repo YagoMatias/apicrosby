@@ -178,6 +178,20 @@ app.get('/vendedor', async (req, res) => {
   }
 });
 
+app.get('/pcp', async (req, res) => {
+  try {
+    const resultado = await pool.query(
+      `SELECT * FROM vw_detalhe_pedido_completo WHERE cd_empresa = 111`,
+    );
+    console.log('Olá Mundo');
+    res.json(resultado.rows);
+    console.log(resultado.rows);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send(`erro no servidor`);
+  }
+});
+
 app.get('/test', async (req, res) => {
   try {
     const resultado = await pool.query(
