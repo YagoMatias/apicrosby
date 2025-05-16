@@ -7,7 +7,19 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors({ origin: '*' }));
+const token = [
+  {
+    tokenid: 12345,
+  },
+];
 
+app.post('/login', async (req, res) => {
+  const { tokenid } = req.body;
+  const user = token.find((user) => user.tokenid === tokenid);
+  user
+    ? res.status(200).json(user)
+    : res.status(401).json({ menssage: 'Credencial invalida' });
+});
 // Rank;
 app.get('/', async (req, res) => {
   const inicio = req.query.inicio;
@@ -49,14 +61,14 @@ JOIN
     PES_PESJURIDICA B ON A.CD_PESSOA = B.CD_PESSOA
 LEFT JOIN
     TRA_TRANSACAO T ON T.CD_GRUPOEMPRESA = A.CD_GRUPOEMPRESA
-WHERE B.CD_PESSOA < 99999 AND B.CD_PESSOA NOT IN(69994,70596) AND
+WHERE B.CD_PESSOA < 110000003 AND B.CD_PESSOA NOT IN(69994,70596,110000001,73469,61000007,61000008,61000009,61000010) AND
 T.VL_TOTAL > 1 AND
     (
         T.TP_SITUACAO IS NULL OR
         (
             T.TP_SITUACAO = 4 AND
             T.TP_OPERACAO IN ('S', 'E') AND
-            T.CD_OPERACAO IN (1,2,510,511,1511,521,1521,522,960,9001,9009,9027,8750,9017,9400,9401,9402,9403,9005,545,546,555,548,1210,9404) AND
+            T.CD_OPERACAO IN (1,2,510,511,1511,521,1521,522,960,9001,9009,9027,8750,9017,9400,9401,9402,9403,9404,9005,545,546,555,548,1210,9405,1205) AND
             T.CD_GRUPOEMPRESA BETWEEN $1 AND $2 AND
             T.DT_TRANSACAO BETWEEN $3::timestamp AND $4::timestamp
         )
@@ -113,7 +125,7 @@ app.get('/home', async (req, res) => {
          WHERE
            TP_SITUACAO = 4 AND
            TP_OPERACAO IN ('S', 'E') AND
-           CD_OPERACAO IN (1,2,510,511,1511,521,1521,522,960,9001,9009,9027,8750,9017,9400,9401,9402,9403,9005,545,546,555,548,1210,9404) AND
+           CD_OPERACAO IN (1,2,510,511,1511,521,1521,522,960,9001,9009,9027,8750,9017,9400,9401,9402,9403,9404,9005,545,546,555,548,1210,9405,1205) AND
            DT_TRANSACAO BETWEEN $1::timestamp AND $2::timestamp
          ORDER BY FATURAMENTO DESC`,
       [[dataInicio], [dataFim]],
@@ -126,7 +138,6 @@ app.get('/home', async (req, res) => {
     res.status(500).send('Erro no servidor');
   }
 });
-
 //Vendedor
 app.get('/vendedor', async (req, res) => {
   const inicio = req.query.inicio;
@@ -164,7 +175,7 @@ app.get('/vendedor', async (req, res) => {
       JOIN TRA_TRANSACAO B ON A.CD_VENDEDOR = B.CD_COMPVEND
       WHERE B.TP_SITUACAO = 4
         AND B.TP_OPERACAO IN ('S', 'E')
-        AND B.CD_OPERACAO IN (1,2,510,511,1511,521,1521,522,960,9001,9009,9027,8750,9017,9400,9401,9402,9403,9005,545,546,555,548,1210,1202,8800,9404)
+        AND B.CD_OPERACAO IN (1,2,510,511,1511,521,1521,522,960,9001,9009,9027,8750,9017,9400,9401,9402,9403,9404,9005,545,546,555,548,1210,9405,1205)
         AND B.DT_TRANSACAO BETWEEN $1::timestamp AND $2::timestamp
       GROUP BY A.CD_VENDEDOR, A.NM_VENDEDOR, B.CD_COMPVEND
       ORDER BY FATURAMENTO DESC`,
@@ -177,7 +188,7 @@ app.get('/vendedor', async (req, res) => {
     res.status(500).send('Erro no servidor bb');
   }
 });
-
+//pcp
 app.get('/pcp', async (req, res) => {
   try {
     const resultado = await pool.query(
@@ -191,11 +202,26 @@ app.get('/pcp', async (req, res) => {
     res.status(500).send(`erro no servidor`);
   }
 });
+//expedição
+app.get('/expedicao', async (req, res) => {
+  try {
+    const resultado = await pool.query(
+      `SELECT * FROM vw_detalhe_pedido_completo WHERE cd_empresa = 850`,
+    );
+    console.log('Olá Mundo');
+    res.json(resultado.rows);
+    console.log(resultado.rows);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send(`erro no servidor`);
+  }
+});
 
+//test
 app.get('/test', async (req, res) => {
   try {
     const resultado = await pool.query(
-      `SELECT * FROM TRA_TRANSACAO WHERE CD_GRUPOEMPRESA = 97`,
+      `SELECT * FROM TRA_TRANSACAO WHERE CD_GRUPOEMPRESA = 95 and dt_transacao = '2025-05-03'`,
     );
     console.log('Olá Mundão vamos funcionar');
     res.json(resultado.rows);
