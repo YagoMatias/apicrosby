@@ -159,11 +159,7 @@ app.get('/home', async (req, res) => {
          WHERE
            TP_SITUACAO = 4 AND
            TP_OPERACAO IN ('S', 'E') AND
-<<<<<<< HEAD
-           CD_OPERACAO IN (1,2,510,511,1511,521,1521,522,960,9001,9009,9027,8750,9017,9400,9401,9402,9403,9005,545,546,555,548,1210,9404,9405) AND
-=======
-           CD_OPERACAO IN (1,2,510,511,1511,521,1521,522,960,9001,9009,9027,8750,9017,9400,9401,9402,9403,9404,9005,545,546,555,548,1210,9405,1205) AND
->>>>>>> 059922d827d09817c48831b32f56c44df900c534
+           CD_OPERACAO IN (1,2,510,511,1511,521,1521,522,960,9001,9009,9027,8750,9017,9400,9401,9402,9403,9005,545,546,555,548,1210,9404,9405,1205) AND
            DT_TRANSACAO BETWEEN $1::timestamp AND $2::timestamp
          ORDER BY FATURAMENTO DESC`,
       [[dataInicio], [dataFim]],
@@ -220,11 +216,7 @@ app.get('/vendedor', async (req, res) => {
       JOIN TRA_TRANSACAO B ON A.CD_VENDEDOR = B.CD_COMPVEND
       WHERE B.TP_SITUACAO = 4
         AND B.TP_OPERACAO IN ('S', 'E')
-<<<<<<< HEAD
-        AND B.CD_OPERACAO IN (1,2,510,511,1511,521,1521,522,960,9001,9009,9027,8750,9017,9400,9401,9402,9403,9005,545,546,555,548,1210,1202,8800,9404,9405)
-=======
-        AND B.CD_OPERACAO IN (1,2,510,511,1511,521,1521,522,960,9001,9009,9027,8750,9017,9400,9401,9402,9403,9404,9005,545,546,555,548,1210,9405,1205)
->>>>>>> 059922d827d09817c48831b32f56c44df900c534
+        AND B.CD_OPERACAO IN (1,2,510,511,1511,521,1521,522,960,9001,9009,9027,8750,9017,9400,9401,9402,9403,9005,545,546,555,548,1210,1202,8800,9404,9405,1205)
         AND B.DT_TRANSACAO BETWEEN $1::timestamp AND $2::timestamp
       GROUP BY A.CD_VENDEDOR, A.NM_VENDEDOR, B.CD_COMPVEND
       ORDER BY FATURAMENTO DESC`,
@@ -244,7 +236,7 @@ app.get('/estoque', async (req,res)=>{
     const resultado = await pool.query(
   `SELECT
        A.cd_grupoempresa,
-       PJ.nm_fantasia as NOME,
+       PJ.nm_fantasia as nome,
        SUM(A.qt_saldo) AS saldo,
        SUM(V.vl_produto * A.qt_saldo) AS valor
      FROM
@@ -337,8 +329,8 @@ app.get('/health', (req, res) => {
 
 const PORT = process.env.port || 3000;
 
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
+app.listen(3000, '0.0.0.0', () => {
+  console.log(`Servidor rodando na porta http://localhost:3000/`);
 });
 
 export default app;
