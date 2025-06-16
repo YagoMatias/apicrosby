@@ -339,6 +339,7 @@ app.get('/estoque', async (req,res)=>{
 
 //estoqueporempresa
 app.get('/estoqueporempresa', async (req,res)=>{
+  const cdGrupoempresa = req.query.cd_grupoempresa;
     try {
     const resultado = await pool.query(
   `SELECT
@@ -362,7 +363,7 @@ app.get('/estoqueporempresa', async (req,res)=>{
       JOIN ger_empresa E ON A.cd_grupoempresa = E.cd_grupoempresa
       JOIN pes_pesjuridica PJ ON E.cd_pessoa = PJ.cd_pessoa
       WHERE
-        A.cd_grupoempresa = 6000 AND
+        A.cd_grupoempresa = $1 AND
         A.qt_saldo != 0 AND
         PJ.nm_fantasia IS NOT NULL AND
         PJ.nm_fantasia NOT ILIKE '%TESTE%' AND
@@ -373,6 +374,7 @@ app.get('/estoqueporempresa', async (req,res)=>{
         )
       GROUP BY A.cd_grupoempresa, PJ.nm_fantasia,a.cd_produto,A.ds_produto
       ORDER BY A.cd_grupoempresa ASC`,
+      [cdGrupoempresa]
     );
     console.log('Estoque rodando');
     res.json(resultado.rows);
