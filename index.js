@@ -381,7 +381,7 @@ app.get('/estoqueporempresa', async (req,res)=>{
     console.log(resultado.rows);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send(`erro no servidor`);
+    res.status(500).send(`erro no servido`);
   }
 })
 
